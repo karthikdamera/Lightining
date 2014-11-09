@@ -17,7 +17,10 @@
         var initAction = component.get("c.newContact");
         initAction.setCallback(self, function(a) {
             console.log("returned: %o", a.getReturnValue());
-            component.set("v.var", a.getReturnValue());
+            
+            var newContact = a.getReturnValue();
+            newContact.AccountId = component.get("v.account");
+            component.set("v.var", newContact);
         });
         
         // Enqueue the action
