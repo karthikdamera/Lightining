@@ -1,5 +1,5 @@
 <aura:application controller="ccmt.OneAccountController">
-    <aura:attribute name="accountContacts" type="Contact[]"/>
+    <aura:attribute name="accountId" type="Id"/>
     <aura:attribute name="accounts" type="Account[]"/>
     
     <!-- Event handlers -->
@@ -10,5 +10,5 @@
                          delete="{!c.handleAccountDelete}"
                          edit="{!c.handleAccountEdit}"
                          quicksave="{!c.handleAccountQuicksave}"/>
-    <ccmt:manageContacts items="{!v.accountContacts}"/>
+    <ccmt:manageContacts account="{!v.accountId}"/>
 </aura:application>

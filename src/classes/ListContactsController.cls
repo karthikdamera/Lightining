@@ -35,6 +35,23 @@ public class ListContactsController {
     }
     
     @AuraEnabled
+    public static List<Contact> getContacts(Id accountId) {
+        return [
+            SELECT Id, Name,
+                AccountId,
+                Email,
+                FirstName,
+                HomePhone,
+                LastName,
+                MobilePhone,
+                OtherPhone,
+                Phone
+            FROM Contact
+            WHERE AccountId = :accountId
+        ];
+    }
+    
+    @AuraEnabled
     public static Contact newContact() {
         return (Contact)Contact.sObjectType.newSObject(null, true);
     }
