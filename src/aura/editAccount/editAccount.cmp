@@ -1,0 +1,20 @@
+<aura:component controller="ccmt.EditAccountController">
+    <aura:attribute name="value" type="Account"
+                    default="{ 'sobjectType': 'Account' }"/>
+    
+    <!-- Event registrations -->
+    <aura:registerEvent name="quicksave" type="ccmt:accountQuicksave"/>
+    
+    <!-- Event handlers -->
+    <aura:handler name="quicksave" action="{!c.handleQuicksave}"/>
+    
+    <!-- UI components -->
+    <div>
+        <label>Account ID</label>
+        <span>{!v.value.Id}</span>
+    </div>
+    <ui:inputText label="Account Name" value="{!v.value.Name}"/>
+    <ui:inputText label="Industry" value="{!v.value.Industry}"/>
+    <ui:inputText label="Type" value="{!v.value.Type}"/>
+    <ui:button label="Save" press="{!c.handleSaveButtonPress}"/>
+</aura:component>

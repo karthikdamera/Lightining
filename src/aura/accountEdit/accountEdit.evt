@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="An account is to be edited">
+    <aura:attribute name="listIndex" type="Integer" default="-1"/>
+    <aura:attribute name="recordId" type="Id"/>
+</aura:event>

@@ -1,0 +1,38 @@
+<aura:component controller="ccmt.ListAccountsController">
+    <aura:attribute name="items" type="Account[]"/>
+    
+    <!-- Event registrations -->
+    <aura:registerEvent name="delete" type="ccmt:accountDelete"/>
+    <aura:registerEvent name="edit" type="ccmt:accountEdit"/>
+    
+    <!-- Event handlers -->
+    <aura:handler name="delete" action="{!c.handleAccountDelete}"/>
+    
+    <!-- UI components -->
+    <table>
+        <caption>Accounts</caption>
+        <thead>
+            <tr>
+                <th><!-- Action --></th>
+                <th>Account Name</th>
+                <th>Industry</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.items}" var="account" indexVar="i">
+                <tr>
+                    <td>
+                        <a onclick="{!c.handleEditClick}" href="#"
+                           data-index="{!i}" data-record-id="{!account.Id}">Edit</a> |
+                        <a onclick="{!c.handleDelClick}" href="#"
+                           data-index="{!i}" data-record-id="{!account.Id}">Del</a>
+                    </td>
+                    <td>{!account.Name}</td>
+                    <td>{!account.Industry}</td>
+                    <td>{!account.Type}</td>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+</aura:component>

@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="An account has been quicksaved">
+    <aura:attribute name="operation" type="String"/>
+    <aura:attribute name="recordId" type="Id"/>
+</aura:event>
