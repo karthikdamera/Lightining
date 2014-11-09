@@ -23,6 +23,11 @@
         
         // Enqueue the action
         $A.enqueueAction(setAction);
+        
+        // Propagate the edit event by recreating and firing
+        // an accountEdit event from the current component
+        var editEvent = component.getEvent("edit");
+        editEvent.setParams(event.getParams()).fire();
     },
     handleInit : function(component, event, helper) {
         helper.initVar(component);

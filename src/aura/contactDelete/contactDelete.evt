@@ -1,0 +1,6 @@
+<aura:event type="COMPONENT" description="A contact has been deleted">
+    <aura:attribute name="listIndex" type="Integer"
+                    default="-1"/>
+    <aura:attribute name="oldRecord" type="Contact"
+                    default="{ 'sobjectType': 'Contact' }"/>
+</aura:event>

@@ -5,6 +5,7 @@
     
     <!-- Event registrations -->
     <aura:registerEvent name="delete" type="ccmt:accountDelete"/>
+    <aura:registerEvent name="edit" type="ccmt:accountEdit"/>
     <aura:registerEvent name="quicksave" type="ccmt:accountQuicksave"/>
     
     <!-- Event handlers -->

@@ -1,0 +1,20 @@
+<aura:component controller="ccmt.ListContactsController">
+    <aura:attribute name="items" type="Contact[]"/>
+    <aura:attribute name="var" type="Contact"
+                    default="{ 'sobjectType': 'Contact' }"/>
+    
+    <!-- Event registrations -->
+    <aura:registerEvent name="delete" type="ccmt:contactDelete"/>
+    <aura:registerEvent name="quicksave" type="ccmt:contactQuicksave"/>
+    
+    <!-- Event handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/>
+    
+    <!-- UI components -->
+    <ccmt:listContacts items="{!v.items}"
+                       delete="{!c.handleContactDelete}"
+                       edit="{!c.handleContactEdit}"/>
+    <ui:button label="New Contact" press="{!c.handleNewContactButtonPress}"/>
+    <ccmt:editContact value="{!v.var}"
+                      quicksave="{!c.handleQuicksave}"/>
+</aura:component>

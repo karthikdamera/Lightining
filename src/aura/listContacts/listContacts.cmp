@@ -1,0 +1,42 @@
+<aura:component controller="ccmt.ListContactsController">
+    <aura:attribute name="items" type="Contact[]"/>
+    
+    <!-- Event registrations -->
+    <aura:registerEvent name="delete" type="ccmt:contactDelete"/>
+    <aura:registerEvent name="edit" type="ccmt:contactEdit"/>
+    
+    <!-- Event handlers -->
+    <aura:handler name="delete" action="{!c.handleContactDelete}"/>
+    
+    <!-- UI components -->
+    <table>
+        <caption>Contacts</caption>
+        <thead>
+            <tr>
+                <th><!-- Action --></th>
+                <th>Account Name/ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.items}" var="contact" indexVar="i">
+                <tr>
+                    <td>
+                        <a onclick="{!c.handleEditClick}" href="#"
+                           data-index="{!i}" data-record-id="{!contact.Id}">Edit</a> |
+                        <a onclick="{!c.handleDelClick}" href="#"
+                           data-index="{!i}" data-record-id="{!contact.Id}">Del</a>
+                    </td>
+                    <td>{!contact.AccountId}</td>
+                    <td>{!contact.FirstName}</td>
+                    <td>{!contact.LastName}</td>
+                    <td>{!contact.Phone}</td>
+                    <td>{!contact.Email}</td>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+</aura:component>

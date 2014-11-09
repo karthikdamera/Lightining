@@ -1,0 +1,23 @@
+<aura:component controller="ccmt.EditContactController">
+    <aura:attribute name="value" type="Contact"
+                    default="{ 'sobjectType': 'Contact' }"/>
+    
+    <!-- Event registrations -->
+    <aura:registerEvent name="quicksave" type="ccmt:contactQuicksave"/>
+    
+    <!-- Event handlers -->
+    <aura:handler name="quicksave" action="{!c.handleQuicksave}"/>
+    
+    <!-- UI components -->
+    <div>
+        <label>Contact ID</label>
+        <span>{!v.value.Id}</span>
+    </div>
+    <ui:inputText label="Account Name/ID" value="{!v.value.AccountId}"
+                  disabled="true"/>
+    <ui:inputText label="First Name" value="{!v.value.FirstName}"/>
+    <ui:inputText label="Last Name" value="{!v.value.LastName}"/>
+    <ui:inputPhone label="Phone" value="{!v.value.Phone}"/>
+    <ui:inputEmail label="Email" value="{!v.value.Email}"/>
+    <ui:button label="Save" press="{!c.handleSaveButtonPress}"/>
+</aura:component>
